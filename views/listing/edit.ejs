@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <div class="col-8 offset-3">
+    <h2>Edit Listing: <%= listing.title %></h2>
+  </div>
+  <div class="card listing-card col-6 offset-3 p-3">
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate enctype="multipart/form-data">
+      
+      <p class="card-text">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" id="title" class="form-control" value="<%= listing.title %>" required>
+      </p>
+
+      <p class="card-text">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" id="description" class="form-control" cols="20" rows="4"><%= listing.description %></textarea>
+      </p>
+
+      <p class="card-text">
+        <label for="price" class="form-label">Price (₹/night)</label>
+        <input type="number" name="listing[price]" id="price" class="form-control" value="<%= listing.price %>" required>
+      </p>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" name="listing[location]" id="location" class="form-control" value="<%= listing.location %>">
+        </div>
+        <div class="col">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" name="listing[country]" id="country" class="form-control" value="<%= listing.country %>">
+        </div>
+      </div>
+
+      <p class="card-text">
+        Original Image <br>
+        <img src="<%= originalImageUrl %>" alt="Original Image">
+      </p>
+
+      <p class="card-text">
+        <label for="imageUrl" class="form-label">Upload New Image</label>
+        <input type="file" name="listing[image]" class="form-control">
+      </p>
+
+      <button type="submit" class="btn add-btn">Update Listing</button>
+    </form>
+  </div>
+</body>
+
+

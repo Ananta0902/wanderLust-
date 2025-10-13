@@ -4,7 +4,7 @@ const mapToken=process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index=async (req, res) => {
-  const allListings = await Listing.find({}); // Capital L
+  const allListings = await Listing.find({}); 
   res.render("listing/index.ejs", { allListings });
 };
 
@@ -14,7 +14,6 @@ module.exports.renderNewForm= (req, res) => {
 
 module.exports.showListing=async (req, res) => {
   const { id } = req.params;
-  //author bhi chaiye har review ko created krne wala----populate author(nested author)
   const foundListing = await Listing.findById(id)
   .populate({
     path:"reviews",
@@ -22,7 +21,7 @@ module.exports.showListing=async (req, res) => {
       path:"author",
     },
   })
-    .populate("owner");
+  .populate("owner");
   if (!foundListing) {
     req.flash("error", "The listing you requested does not exist");
     return res.redirect("/listings");
@@ -41,7 +40,6 @@ let response=await geocodingClient.forwardGeocode({
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image={url,filename};
-
   newListing.geometry=response.body.features[0].geometry;
   await newListing.save();
   req.flash("success", "New listing created!");
@@ -50,7 +48,7 @@ let response=await geocodingClient.forwardGeocode({
 
 module.exports.renderEditForm = async (req, res) => {
   const { id } = req.params;
-  const listing = await Listing.findById(id); // lowercase 'listing'
+  const listing = await Listing.findById(id);
   if (!listing) {
     req.flash("error", "The listing you requested does not exist");
     return res.redirect("/listings");

@@ -96,3 +96,7 @@ app.use((err, req, res, next) => {
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });
+app.get("/", (req, res) => {
+  console.log("currUser:", res.locals.currUser);
+  res.render("home");
+});

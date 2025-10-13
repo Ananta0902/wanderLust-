@@ -6,14 +6,6 @@ const listingSchema = new Schema({
   title: { type: String, required: true },
   description: String,
   image: {
-    // filename: { type: String, default: "listingimage" },
-    // url: {
-    //   type: String,
-    //   default: "https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg",
-    //   set: v => v === "" 
-    //     ? "https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg" 
-    //     : v
-    // }
     url:String,
     filename:String,
   },

@@ -202,94 +202,127 @@ const sampleListings = [
       coordinates: [70.9083, 26.9157],
     },
   },
-  {
-  title: "Modern Studio near Hauz Khas Village",
-  description: "A cozy modern studio apartment near cafes, nightlife, and metro connectivity. Perfect for solo travelers or couples.",
-  price: 2500,
-  location: "Hauz Khas, Delhi",
-  country: "India",
-  geometry: {
-    type: "Point",
-    coordinates: [77.1945, 28.5535]
-  }
-},
-{
-  title: "Sea View Apartment in Bandra",
-  description: "Spacious sea-facing apartment in the heart of Bandra. Close to Bandstand, cafes, and shopping streets.",
-  price: 6500,
-  location: "Bandra West, Mumbai",
-  country: "India",
-  geometry: {
-    type: "Point",
-    coordinates: [72.8265, 19.0596]
-  }
-},
-{
-  title: "Peaceful Home near Baner Hills",
-  description: "A calm and comfortable home surrounded by greenery, ideal for long stays and remote work.",
-  price: 2200,
-  location: "Baner, Pune",
-  country: "India",
-  geometry: {
-    type: "Point",
-    coordinates: [73.7845, 18.5590]
-  }
-},
-{
-  title: "Comfort Stay on Boring Road",
-  description: "Clean and spacious stay located in one of Patna’s prime residential areas, close to markets and hospitals.",
-  price: 1800,
-  location: "Boring Road, Patna",
-  country: "India",
-  geometry: {
-    type: "Point",
-    coordinates: [85.1137, 25.6093]
-  }
-},
-{
-  title: "Elegant Apartment in Salt Lake",
-  description: "Well-furnished apartment in IT hub Salt Lake. Ideal for business travelers and families.",
-  price: 3000,
-  location: "Salt Lake, Kolkata",
-  country: "India",
-  geometry: {
-    type: "Point",
-    coordinates: [88.4329, 22.5867]
-  }
-},
-{
-  title: "Classic South Indian Home in T Nagar",
-  description: "Traditional home with modern amenities near shopping streets and temples.",
+ {
+  title: "Modern Apartment in Delhi",
+  description: "A stylish apartment near Connaught Place with great city connectivity.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=60",
+  },
   price: 2800,
-  location: "T Nagar, Chennai",
+  location: "Delhi",
   country: "India",
   geometry: {
     type: "Point",
-    coordinates: [80.2337, 13.0418]
-  }
+    coordinates: [77.2090, 28.6139],
+  },
 },
 {
-  title: "Luxury Flat near IT Hub Gachibowli",
-  description: "Premium flat near major IT companies, restaurants, and shopping malls.",
-  price: 4200,
-  location: "Gachibowli, Hyderabad",
+  title: "Sea View Flat in Mumbai",
+  description: "Enjoy stunning Arabian Sea views from this premium Mumbai apartment.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 3200,
+  location: "Mumbai",
   country: "India",
   geometry: {
     type: "Point",
-    coordinates: [78.3486, 17.4401]
-  }
+    coordinates: [72.8777, 19.0760],
+  },
 },
 {
-  title: "Heritage Stay near Jaipur City",
-  description: "Experience Rajasthani hospitality in a peaceful home close to forts and markets.",
-  price: 2400,
-  location: "Malviya Nagar, Jaipur",
+  title: "IT Hub Stay in Bengaluru",
+  description: "Comfortable stay near tech parks with modern amenities.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1626196349890-94f09d3f4046?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2100,
+  location: "Bengaluru",
   country: "India",
   geometry: {
     type: "Point",
-    coordinates: [75.8056, 26.8506]
-  }
+    coordinates: [77.5946, 12.9716],
+  },
 },
+{
+  title: "Cultural Stay in Kolkata",
+  description: "Classic heritage home close to historic landmarks.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1598968636288-3f8e4d9a77b3?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 1600,
+  location: "Kolkata",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [88.3639, 22.5726],
+  },
+},
+{
+  title: "Riverside Home in Patna",
+  description: "Peaceful stay near the Ganga with scenic surroundings.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 1200,
+  location: "Patna",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [85.1376, 25.5941],
+  },
+},
+{
+  title: "City Center Apartment in Pune",
+  description: "Well-furnished apartment close to cafes and workplaces.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2000,
+  location: "Pune",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [73.8567, 18.5204],
+  },
+},
+{
+  title: "Tech City Stay in Hyderabad",
+  description: "Modern home near HITEC City, ideal for professionals.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2300,
+  location: "Hyderabad",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [78.4867, 17.3850],
+  },
+},
+{
+  title: "Urban Comfort in Chennai",
+  description: "Relaxed coastal city stay with modern interiors.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 1900,
+  location: "Chennai",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [80.2707, 13.0827],
+  },
+}
+
 ];
 
 module.exports = { data: sampleListings };

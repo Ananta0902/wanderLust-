@@ -26,6 +26,7 @@ async function main() {
       geometry: {
         type: "Point",
         coordinates: [0, 0], 
+        
       },
     }));
 

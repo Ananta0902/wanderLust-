@@ -80,7 +80,7 @@ app.use("/", userRouter);
 app.get("/", (req, res) => res.redirect("/listings"));
 
 // ===== 404 & Error Handler =====
-app.all("*", (req, res, next) => next(new ExpressError(404, "Page Not Found")));
+app.all("/*", (req, res, next) => next(new ExpressError(404, "Page Not Found")));
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).render("error", { err });
 });

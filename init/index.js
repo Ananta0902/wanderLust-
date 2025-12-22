@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const mongoose = require("mongoose");
 const listing = require("../modules/listing.js");
-const { data } = require("./data.js"); // your sampleListings
+const { data } = require("./data.js"); 
 
 const dbURL = process.env.ATLASDB_URL;
 
@@ -17,17 +17,15 @@ async function main() {
     });
     console.log("MongoDB connected successfully!");
 
-    // Clear existing listings
     await listing.deleteMany({});
     console.log("Existing listings deleted.");
 
-    // Insert new listings
     const updatedData = data.map((obj) => ({
       ...obj,
-      owner: "68e69d060eb8553f2f5797ba", // example owner
+      owner: "68e69d060eb8553f2f5797ba", 
       geometry: {
         type: "Point",
-        coordinates: [0, 0], // default coordinates; replace if needed
+        coordinates: [0, 0], 
       },
     }));
 

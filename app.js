@@ -21,7 +21,6 @@ const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
 
-// --- View Engine ---
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -31,13 +30,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-// --- MongoDB ---
 const dbURL = process.env.ATLASDB_URL;
 mongoose.connect(dbURL)
   .then(() => console.log("MongoDB connected successfully!"))
   .catch(err => console.error("MongoDB connection error:", err.message));
 
-// --- Session ---
 const store = MongoStore.create({
   mongoUrl: dbURL,
   crypto: { secret: process.env.SECRET },
@@ -55,14 +52,12 @@ app.use(session({
 
 app.use(flash());
 
-// --- Passport ---
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// --- Flash & Current User ---
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
@@ -89,7 +84,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { err });
 });
 
-// --- Start Server ---
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 

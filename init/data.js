@@ -202,6 +202,94 @@ const sampleListings = [
       coordinates: [70.9083, 26.9157],
     },
   },
+  {
+  title: "Modern Studio near Hauz Khas Village",
+  description: "A cozy modern studio apartment near cafes, nightlife, and metro connectivity. Perfect for solo travelers or couples.",
+  price: 2500,
+  location: "Hauz Khas, Delhi",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [77.1945, 28.5535]
+  }
+},
+{
+  title: "Sea View Apartment in Bandra",
+  description: "Spacious sea-facing apartment in the heart of Bandra. Close to Bandstand, cafes, and shopping streets.",
+  price: 6500,
+  location: "Bandra West, Mumbai",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [72.8265, 19.0596]
+  }
+},
+{
+  title: "Peaceful Home near Baner Hills",
+  description: "A calm and comfortable home surrounded by greenery, ideal for long stays and remote work.",
+  price: 2200,
+  location: "Baner, Pune",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [73.7845, 18.5590]
+  }
+},
+{
+  title: "Comfort Stay on Boring Road",
+  description: "Clean and spacious stay located in one of Patna’s prime residential areas, close to markets and hospitals.",
+  price: 1800,
+  location: "Boring Road, Patna",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [85.1137, 25.6093]
+  }
+},
+{
+  title: "Elegant Apartment in Salt Lake",
+  description: "Well-furnished apartment in IT hub Salt Lake. Ideal for business travelers and families.",
+  price: 3000,
+  location: "Salt Lake, Kolkata",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [88.4329, 22.5867]
+  }
+},
+{
+  title: "Classic South Indian Home in T Nagar",
+  description: "Traditional home with modern amenities near shopping streets and temples.",
+  price: 2800,
+  location: "T Nagar, Chennai",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [80.2337, 13.0418]
+  }
+},
+{
+  title: "Luxury Flat near IT Hub Gachibowli",
+  description: "Premium flat near major IT companies, restaurants, and shopping malls.",
+  price: 4200,
+  location: "Gachibowli, Hyderabad",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [78.3486, 17.4401]
+  }
+},
+{
+  title: "Heritage Stay near Jaipur City",
+  description: "Experience Rajasthani hospitality in a peaceful home close to forts and markets.",
+  price: 2400,
+  location: "Malviya Nagar, Jaipur",
+  country: "India",
+  geometry: {
+    type: "Point",
+    coordinates: [75.8056, 26.8506]
+  }
+},
 ];
 
 module.exports = { data: sampleListings };

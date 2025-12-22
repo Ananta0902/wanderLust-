@@ -86,7 +86,7 @@ app.use("/", userRouter);
 
 app.get("/", (req, res) => {
   console.log("currUser:", res.locals.currUser);
-  res.render("home");
+  res.render("/listings");
 });
 app.all(/.*/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));

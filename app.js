@@ -84,9 +84,16 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
+// app.get("/", (req, res) => {
+//   console.log("currUser:", res.locals.currUser);
+//   res.render("/listings");
+// });
+// app.get("/", async (req, res) => {
+//   const listings = await Listing.find({});
+//   res.render("listing/index", { listings });
+// });
 app.get("/", (req, res) => {
-  console.log("currUser:", res.locals.currUser);
-  res.render("/listings");
+  res.redirect("/listings");
 });
 app.all(/.*/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));

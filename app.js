@@ -32,7 +32,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // --- MongoDB ---
-const dbURL = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderLust";
+const dbURL = process.env.ATLASDB_URL;
 mongoose.connect(dbURL)
   .then(() => console.log("MongoDB connected successfully!"))
   .catch(err => console.error("MongoDB connection error:", err.message));

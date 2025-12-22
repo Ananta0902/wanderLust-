@@ -1,6 +1,9 @@
+
+require("dotenv").config();
 const mongoose = require("mongoose");
 const {data} = require("./data.js");
 const listing = require("../modules/listing.js");
+
 
 const mongoURL = process.env.MONGO_URL;
 

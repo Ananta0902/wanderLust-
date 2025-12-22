@@ -10,7 +10,12 @@ const sampleListings = [
     price: 2200,
     location: "Goa",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [73.8278, 15.4989],
+    },
   },
+
   {
     title: "Mountain Cabin in Manali",
     description:
@@ -22,7 +27,12 @@ const sampleListings = [
     price: 1500,
     location: "Manali",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [77.1892, 32.2396],
+    },
   },
+
   {
     title: "Heritage Haveli in Jaipur",
     description:
@@ -34,7 +44,12 @@ const sampleListings = [
     price: 2000,
     location: "Jaipur",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [75.7873, 26.9124],
+    },
   },
+
   {
     title: "Lake View Stay in Udaipur",
     description:
@@ -46,7 +61,12 @@ const sampleListings = [
     price: 1800,
     location: "Udaipur",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [73.7125, 24.5854],
+    },
   },
+
   {
     title: "Hilltop Cottage in Mussoorie",
     description:
@@ -58,7 +78,12 @@ const sampleListings = [
     price: 1400,
     location: "Mussoorie",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [78.0644, 30.4598],
+    },
   },
+
   {
     title: "Tea Estate Bungalow in Munnar",
     description:
@@ -70,7 +95,12 @@ const sampleListings = [
     price: 1700,
     location: "Munnar",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [77.0595, 10.0889],
+    },
   },
+
   {
     title: "Backwater Villa in Alleppey",
     description:
@@ -82,7 +112,12 @@ const sampleListings = [
     price: 1900,
     location: "Alleppey",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [76.3388, 9.4981],
+    },
   },
+
   {
     title: "Luxury Apartment in Mumbai",
     description:
@@ -94,7 +129,12 @@ const sampleListings = [
     price: 2500,
     location: "Mumbai",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [72.8777, 19.0760],
+    },
   },
+
   {
     title: "Riverside Camp in Rishikesh",
     description:
@@ -106,7 +146,12 @@ const sampleListings = [
     price: 900,
     location: "Rishikesh",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [78.2676, 30.0869],
+    },
   },
+
   {
     title: "Colonial Stay in Shimla",
     description:
@@ -118,7 +163,12 @@ const sampleListings = [
     price: 1300,
     location: "Shimla",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [77.1734, 31.1048],
+    },
   },
+
   {
     title: "Coffee Plantation Stay in Coorg",
     description:
@@ -130,7 +180,12 @@ const sampleListings = [
     price: 1600,
     location: "Coorg",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [75.8069, 12.3375],
+    },
   },
+
   {
     title: "Desert Camp in Jaisalmer",
     description:
@@ -142,6 +197,10 @@ const sampleListings = [
     price: 1400,
     location: "Jaisalmer",
     country: "India",
+    geometry: {
+      type: "Point",
+      coordinates: [70.9083, 26.9157],
+    },
   },
 ];
 

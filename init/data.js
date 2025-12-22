@@ -322,7 +322,6 @@ const sampleListings = [
     coordinates: [80.2707, 13.0827],
   },
 }
-
 ];
 
 module.exports = { data: sampleListings };

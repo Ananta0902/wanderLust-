@@ -1,43 +1,26 @@
-// init/index.js
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-
+require("dotenv").config();
 const mongoose = require("mongoose");
-const listing = require("../modules/listing.js");
-const { data } = require("./data.js"); 
+const Listing = require("../modules/listing");
+const { data } = require("./data");
 
-const dbURL = process.env.ATLASDB_URL;
+const dbURL = process.env.ATLASDB_URL; // 🚨 MUST be Atlas
 
 async function main() {
-  try {
-    await mongoose.connect(dbURL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("MongoDB connected successfully!");
+  await mongoose.connect(dbURL);
+  console.log("Connected to Atlas");
 
-    await listing.deleteMany({});
-    console.log("Existing listings deleted.");
+  const OWNER_ID = "68e69d060eb8553f2f5797ba";
 
-    const updatedData = data.map((obj) => ({
-      ...obj,
-      owner: "68e69d060eb8553f2f5797ba", 
-      geometry: {
-        type: "Point",
-        coordinates: [0, 0], 
-        
-      },
-    }));
+  await Listing.deleteMany({});
+  const updatedData = data.map(obj => ({
+    ...obj,
+    owner: OWNER_ID,
+  }));
 
-    await listing.insertMany(updatedData);
-    console.log("Listings initialized successfully.");
+  await Listing.insertMany(updatedData);
+  console.log("Atlas database seeded");
 
-    process.exit();
-  } catch (err) {
-    console.error("Error initializing database:", err);
-    process.exit(1);
-  }
+  mongoose.connection.close();
 }
 
 main();

@@ -12,59 +12,57 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-
-const ExpressError = require("./utils/ExpressError.js");
 const User = require("./modules/user.js");
 
 const listingRouter = require("./routes/listings.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
 
-// ===== View Engine =====
+// --- View Engine ---
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// ===== Middleware =====
+// --- Middleware ---
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-// ===== MongoDB Connection =====
-const dbURL = process.env.ATLASDB_URL;
-mongoose
-  .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => {
-    console.error("MongoDB connection error:", err.message);
-    process.exit(1);
-  });
+// --- MongoDB ---
+const dbURL = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderLust";
+mongoose.connect(dbURL)
+  .then(() => console.log("MongoDB connected successfully!"))
+  .catch(err => console.error("MongoDB connection error:", err.message));
 
-// ===== Session =====
-const store = MongoStore.create({ mongoUrl: dbURL, crypto: { secret: process.env.SECRET } });
-store.on("error", (err) => console.error("Session store error:", err));
+// --- Session ---
+const store = MongoStore.create({
+  mongoUrl: dbURL,
+  crypto: { secret: process.env.SECRET },
+  touchAfter: 24 * 3600,
+});
+store.on("error", err => console.log("Mongo Store Error:", err));
 
-app.use(
-  session({
-    store,
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { httpOnly: true },
-  })
-);
+app.use(session({
+  store,
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000 }
+}));
+
 app.use(flash());
 
-// ===== Passport =====
+// --- Passport ---
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// ===== Flash & Current User =====
+// --- Flash & Current User ---
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
@@ -72,20 +70,26 @@ app.use((req, res, next) => {
   next();
 });
 
-// ===== Routes =====
+// --- Routes ---
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
 app.get("/", (req, res) => res.redirect("/listings"));
 
-// ===== 404 & Error Handler =====
-app.all("/*", (req, res, next) => next(new ExpressError(404, "Page Not Found")));
-app.use((err, req, res, next) => {
-  res.status(err.statusCode || 500).render("error", { err });
+// --- Catch-all 404 ---
+app.all(/.*/, (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found!"));
 });
 
-// ===== Start Server =====
+
+// --- Error Handler ---
+app.use((err, req, res, next) => {
+  const { statusCode = 500 } = err;
+  res.status(statusCode).render("error.ejs", { err });
+});
+
+// --- Start Server ---
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 

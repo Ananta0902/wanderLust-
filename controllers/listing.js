@@ -12,21 +12,24 @@ module.exports.renderNewForm= (req, res) => {
   res.render("listing/new.ejs");
 };
 
-module.exports.showListing=async (req, res) => {
+module.exports.showListing = async (req, res) => {
   const { id } = req.params;
-  const foundListing = await Listing.findById(id)
-  .populate({
-    path:"reviews",
-    populate:{           //har review ke sath uska author nested form me populate
-      path:"author",
-    },
-  })
-  .populate("owner");
-  if (!foundListing) {
-    req.flash("error", "The listing you requested does not exist");
+
+  const listing = await Listing.findById(id)
+    .populate("owner")
+    .populate({
+      path: "reviews",
+      populate: {
+        path: "author",
+      },
+    });
+
+  if (!listing) {
+    req.flash("error", "Listing not found!");
     return res.redirect("/listings");
   }
-  res.render("listing/show.ejs", { Listing: foundListing });
+
+  res.render("listing/show.ejs", { listing });
 };
 
 module.exports.createListing=async (req, res) => {

@@ -16,6 +16,10 @@
       <div class="card-body">
         <p class="card-text"> 
           <i>owned by <%= Listing.owner.username %>   </i> 
+          <!-- <i>
+  owned by
+  <%= listing.owner ? listing.owner.username : "Unknown" %>
+</i> -->
         </p>
         <p class="card-text"> 
           <%= Listing.description && Listing.description.trim() !=="" ? Listing.description : "No description provided."

@@ -111,12 +111,17 @@ app.all(/.*/, (req, res, next) => {
 });
 
 // It’s a special Express function that catches any error thrown anywhere in your app.
-app.use((err,req,res,next)=>{
-  let {statusCode=500,message="Something went wrong"}=err;
-  res.status(statusCode).render("error.ejs", { message });
-  // res.render("error.ejs",{message});
-  // res.status(statusCode).send(message);
-})
+// app.use((err,req,res,next)=>{
+//   let {statusCode=500,message="Something went wrong"}=err;
+//   res.status(statusCode).render("error.ejs", { message });
+//   // res.render("error.ejs",{message});
+//   // res.status(statusCode).send(message);
+// });
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "Something went wrong!" } = err;
+    res.status(statusCode);
+    res.render("error.ejs", { err });
+});
 
 app.listen(8080,()=>{
     console.log("server is listening to port 8080")

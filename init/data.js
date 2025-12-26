@@ -50,22 +50,22 @@ const sampleListings = [
     },
   },
 
-  {
-    title: "Lake View Stay in Udaipur",
-    description:
-      "Wake up to stunning lake views in this peaceful stay near Lake Pichola in the City of Lakes.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1583248369069-9d91f7f6c8ad?auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Udaipur",
-    country: "India",
-    geometry: {
-      type: "Point",
-      coordinates: [73.7125, 24.5854],
-    },
-  },
+  // {
+  //   title: "Lake View Stay in Udaipur",
+  //   description:
+  //     "Wake up to stunning lake views in this peaceful stay near Lake Pichola in the City of Lakes.",
+  //   image: {
+  //     filename: "listingimage",
+  //     url: "https://images.unsplash.com/photo-1583248369069-9d91f7f6c8ad?auto=format&fit=crop&w=800&q=60",
+  //   },
+  //   price: 1800,
+  //   location: "Udaipur",
+  //   country: "India",
+  //   geometry: {
+  //     type: "Point",
+  //     coordinates: [73.7125, 24.5854],
+  //   },
+  // },
 
   {
     title: "Hilltop Cottage in Mussoorie",

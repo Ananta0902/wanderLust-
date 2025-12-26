@@ -1,4 +1,4 @@
-const User=require("../modules/user.js");
+const User=require("../models/user.js");
 
 module.exports.renderSignUpForm=async(req,res)=>{
     res.render("users/signup.ejs");

@@ -28,8 +28,11 @@
     <!-- this div's some components are build using bootstrap -->
     <br />
 </div>
-
-<% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+<% if(currUser && listing.owner && listing.owner._id.equals(currUser._id)) { %>
+  <div class="btns">
+    <a href="/listings/<%= listing._id %>/edit">Edit</a>
+  </div>
+<% } %>
   <div class="btns">
       <a
          href="/listings/<%= listing._id %>/edit"

@@ -14,7 +14,7 @@ router.route("/")
   .post(
     isLoggedIn,
     validateListing,
-    upload.single("listing[image]"),
+    upload.single("listing[imageFile]"),
     wrapAsync(listingController.createListing)
   );
    
@@ -31,7 +31,7 @@ router.get("/:id", wrapAsync(listingController.showListing));
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
 // Update
-router.put("/:id", isLoggedIn, isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing));
+router.put("/:id", isLoggedIn, isOwner,upload.single("listing[imageFile]"), validateListing, wrapAsync(listingController.updateListing));
 
 // Delete
 router.delete("/:id", isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));

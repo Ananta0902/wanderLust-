@@ -28,16 +28,26 @@
           <div class="invalid-feedback">Please enter a short description!</div>
       </div>
       
-     
-      <div class="mb-3">
-        <label for="image" class="form-label">Upload Listing Image</label>
-        <input 
-          name="listing[image]" 
-          type="file" 
-          class="form-control"
-          required;
-        />
-      </div>
+<div class="mb-3">
+  <label class="form-label">Upload Listing Image</label>
+  <input
+    type="file"
+    name="listing[imageFile]"
+    class="form-control"
+    accept="image/*"
+  />
+</div>
+
+<div class="mb-3">
+  <label class="form-label">OR Image URL</label>
+  <input
+    type="text"
+    name="listing[imageUrl]"
+    class="form-control"
+    placeholder="https://example.com/image.jpg"
+  />
+</div>
+
 
       <div class="row">
         <div class="mb-3 col-md-4"> 

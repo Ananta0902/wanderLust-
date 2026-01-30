@@ -19,5 +19,5 @@ WanderLust is a full-stack web application that allows users to create, view, an
 - Bootstrap
 - Cloudinary (image storage)
 
-cd WanderLust
+
 

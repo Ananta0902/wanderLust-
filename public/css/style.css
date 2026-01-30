@@ -60,6 +60,16 @@ body
     border: none;
     margin-bottom: 2rem;
 }
+.listing-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (max-width: 576px) {
+  .listing-title {
+    font-size: 1.2rem;
+  }
+}
 .card-img-top{
     border-radius: 1rem;
     width: 100% !important;
@@ -86,6 +96,19 @@ body
     background-color:  #fe424d !important;
     border: none !important;
 }
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.details-images img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .details-wrapper {
+    flex-direction: row;
+  }
+}
 /* show  page */
 .show-img{
     height: 30vh;
@@ -94,7 +117,42 @@ body
 .btns{
     display: flex;
 }
+form input,
+form button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-group {
+  width: 100%;
+}
 
+@media (max-width: 576px) {
+  .form-label {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+.alert {
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 8px;
+}
+.footer {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 /* map */
 #map {
     height: 400px;

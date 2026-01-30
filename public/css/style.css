@@ -158,3 +158,33 @@ form button {
     height: 400px;
     width: 120vh;
     }
+/* MOBILE-FIRST FORM FIX */
+form {
+  max-width: 100%;
+}
+
+form .form-control,
+form textarea,
+form select {
+  font-size: 16px; /* prevents iOS zoom */
+  padding: 12px;
+}
+
+form label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+form button {
+  padding: 12px;
+  font-size: 16px;
+}
+@media (max-width: 576px) {
+  .form-submit {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+}

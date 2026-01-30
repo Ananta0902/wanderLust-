@@ -39,10 +39,31 @@
     margin-right: 0;
   }
 }
+@media (max-width: 576px) {
+  .search-inp {
+    text-align: center;
+  }
+}
+.navbar {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.nav-link {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+.navbar-collapse {
+  padding-top: 0.5rem;
+}
 </style>
 
 <!-- light-background color it iss .....and md means in medium screen size also navbar should be expanded-->
-  <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
+
   <!-- using border-bottom lower border is visible.....sticky-top is used to avoid scrooling of navbar -->
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>

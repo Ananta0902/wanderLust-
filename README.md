@@ -13,6 +13,7 @@ WanderLust is a full-stack web application that allows users to create, view, an
 #🛠 Tech Stack
 - Node.js
 - Express.js
+- MVC Framework
 - MongoDB & Mongoose
 - Passport.js (Local Strategy)
 - EJS & EJS-Mate

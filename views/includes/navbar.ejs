@@ -1,6 +1,6 @@
 <style>
   .navbar {
-    height: 5rem;
+    height: 4rem;
     background-color: white;
   }
 
@@ -82,7 +82,7 @@
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center" href="/listings">
       <i class="fa-regular fa-compass me-2"></i>
-      WanderStay
+      WanderLust
     </a>
 
     <!-- Mobile Toggle -->
@@ -99,18 +99,22 @@
 
       <!-- CENTER SEARCH -->
       <div class="mx-auto search-form">
-        <form class="d-flex" role="search">
-          <input
-            class="form-control search-inp"
-            type="search"
-            placeholder="Search destinations..."
-          />
+      <form class="d-flex" role="search" action="/listings/search" method="GET">
 
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            Search
-          </button>
-        </form>
+  <input
+    class="form-control me-2 search-inp"
+    type="search"
+    name="q"
+    placeholder="Search destinations..."
+    required
+  />
+
+  <button class="btn search-btn" type="submit">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Search
+  </button>
+
+</form>
       </div>
 
       <!-- RIGHT SIDE LINKS -->

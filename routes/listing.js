@@ -24,6 +24,20 @@ router.get("/search",listingController.searchListing);
 // New
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
+router.get("/search", async (req, res) => {
+    let { q } = req.query;
+
+    if (!q) {
+        req.flash("error", "Search text missing");
+        return res.redirect("/listings");
+    }
+
+    const allListings = await Listing.find({
+        location: { $regex: q, $options: "i" }
+    });
+
+    res.render("listings/index.ejs", { allListings });
+});
 // Show
 router.get("/:id", wrapAsync(listingController.showListing));
 

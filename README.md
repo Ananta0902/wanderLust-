@@ -7,7 +7,6 @@ WanderLust is a full-stack web application that allows users to create, view, an
 - Image upload support
 - Flash messages for user feedback
 - Session-based authentication
-- Centralized error handling with custom error page
 - Deployed on Render
 
 #🛠 Tech Stack
@@ -15,7 +14,7 @@ WanderLust is a full-stack web application that allows users to create, view, an
 - Express.js
 - MVC Framework
 - MongoDB & Mongoose
-- Passport.js (Local Strategy)
+- Passport.js
 - EJS & EJS-Mate
 - Bootstrap
 - Cloudinary (image storage)

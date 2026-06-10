@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+<div class="row justify-content-center">
+
+<div class="col-md-7">
+
+<div class="card shadow-lg border-0 p-4">
+
+<h2 class="text-center mb-2">
+✨ WanderLust AI Trip Planner
+</h2>
+
+<p class="text-center text-muted">
+Create personalized itineraries in seconds.
+</p>
+
+<form action="/ai/trip-plan" method="POST">
+
+<div class="mb-3">
+<label class="form-label">
+📍 Destination
+</label>
+
+<input
+type="text"
+name="destination"
+class="form-control"
+placeholder="Goa, Manali, Paris..."
+required>
+</div>
+
+
+<div class="mb-3">
+<label class="form-label">
+📅 Days
+</label>
+
+<input
+type="number"
+name="days"
+class="form-control"
+required>
+</div>
+
+
+<div class="mb-3">
+<label class="form-label">
+💰 Budget
+</label>
+
+<select
+name="budget"
+class="form-select">
+
+<option>Budget</option>
+<option>Moderate</option>
+<option>Luxury</option>
+
+</select>
+</div>
+
+
+<div class="mb-3">
+<label class="form-label">
+❤️ Interests
+</label>
+
+<input
+type="text"
+name="interests"
+class="form-control"
+placeholder="Adventure, Food, Nature">
+</div>
+
+
+<button class="btn btn-danger w-100">
+✨ Generate My Trip
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>

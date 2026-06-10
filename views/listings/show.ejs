@@ -20,6 +20,63 @@
       <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN") %>per night</p>
       <p class="card-text"><%= listing.location %></p>
       <p class="card-text"><%= listing.country %></p>
+       <div class="d-flex gap-2 flex-wrap">
+
+  <a
+    href="/ai/trip-planner?destination=<%= listing.location %>"
+    class="btn btn-danger"
+  >
+    ✨ Plan My <%= listing.location %> Trip
+  </a>
+
+ <button
+ class="btn btn-outline-danger"
+ onclick="openPropertyChat()"
+>
+ 🤖 Ask About This Place
+</button>
+<script>
+window.listingData = {
+  title: "<%= listing.title %>",
+  location: "<%= listing.location %>",
+  country: "<%= listing.country %>",
+  price: "<%= listing.price %>"
+};
+</script>
+<div id="propertyChatPopup" class="chat-popup">
+
+  <div class="chat-header">
+    🤖 WanderLust AI Guide
+
+    <button onclick="closePropertyChat()">
+      ✖
+    </button>
+  </div>
+
+  <div
+    id="chatMessages"
+    class="chat-messages"
+  ></div>
+
+  <div class="chat-input-box">
+
+    <input
+      id="chatInput"
+      type="text"
+      placeholder="Ask about this place..."
+    >
+
+    <button onclick="sendMessage()">
+      Send
+    </button>
+
+  </div>
+
+</div>
+
+<script src="/js/chat.js"></script>
+
+</div>
     </div>
   </div>
 
@@ -28,7 +85,7 @@
     <div class="btns">
       <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
       <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display:inline-block;">
-        <button class="btn btn-dark">Delete</button>
+        <button class="btn btn-dark offset-2">  Delete</button>
       </form>
     </div>
   <% } %>

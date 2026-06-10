@@ -31,7 +31,7 @@
     background-color: #fe424d;
     color: white;
     border-radius: 25px;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem;
     border: none;
     margin-left: 0.5rem;
   }
@@ -95,29 +95,32 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <!-- CENTER SEARCH -->
-      <div class="mx-auto search-form">
-      <form class="d-flex" role="search" action="/listings/search" method="GET">
+  <!-- CENTER SEARCH -->
+  <div class="mx-auto search-form">
+    <form
+      class="d-flex"
+      role="search"
+      action="/listings/search"
+      method="GET"
+    >
+      <input
+        class="form-control  search-inp"
+        type="search"
+        name="q"
+        placeholder="Search destinations..."
+        required
+      />
 
-  <input
-    class="form-control me-2 search-inp"
-    type="search"
-    name="q"
-    placeholder="Search destinations..."
-    required
-  />
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+      </button>
+    </form>
+  </div>
 
-  <button class="btn search-btn" type="submit">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    Search
-  </button>
-
-</form>
-      </div>
-
-      <!-- RIGHT SIDE LINKS -->
+</div>
       <div class="navbar-nav align-items-center">
 
         <a class="nav-link me-3" href="/listings">

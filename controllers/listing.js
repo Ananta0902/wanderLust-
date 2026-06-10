@@ -32,11 +32,20 @@ module.exports.searchListing = async (req, res) => {
   });
 };
 
+// module.exports.index=async (req,res,next) => {
+//   const allListings = await Listing.find({}).populate("owner");
+//   res.render("listings/index.ejs", { allListings });
+// };
+module.exports.index = async (req,res) => {
+  const allListings = await Listing.find({});
 
+  console.log("Listings count:", allListings.length);
 
-module.exports.index=async (req,res,next) => {
-  const allListings = await Listing.find({}).populate("owner");
-  res.render("listings/index.ejs", { allListings });
+  if(allListings.length > 0){
+      console.log(allListings[0]);
+  }
+
+  res.render("listings/index.ejs",{allListings});
 };
 
 module.exports.renderNewForm=(req, res) => {

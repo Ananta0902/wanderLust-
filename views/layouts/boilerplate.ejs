@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/chatbot.css">
 </head>
    <link href="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js"></script>
@@ -23,6 +24,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <%- include("../includes/footer.ejs") %>
     <script src="/js/script.js"></script>
- 
+
+    <button
+  class="ai-floating-btn"
+  onclick="openGlobalChat()"
+>
+  ✈️ AI Travel Guide
+</button>
+<div id="globalChatPopup" class="chat-popup">
+
+  <div class="chat-header">
+
+    🌍 WanderLust Travel Guide
+
+    <button onclick="closeGlobalChat()">
+      ✖
+    </button>
+
+  </div>
+
+  <div
+    id="globalChatMessages"
+    class="chat-messages"
+  ></div>
+
+  <div class="chat-input-box">
+
+    <input
+      id="globalChatInput"
+      type="text"
+      placeholder="Ask anything about travel..."
+    >
+    <button onclick="sendGlobalMessage()">
+      Send
+    </button>
+  </div>
+</div>
+<script src="/js/globalChat.js"></script>
 </body>
 </html>

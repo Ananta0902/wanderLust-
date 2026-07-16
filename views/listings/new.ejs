@@ -1,95 +1,54 @@
-<%layout("/layouts/boilerplate")%>
-<body>
-  <div class="row mt-3"> <!-- mt- margin top is a bootstap class -->
-    <div class="col-8 offset-2">
-    <!-- offset to keep the entire content in middle -->
-    <h3>Create a New Listing</h3>
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3 px-2 px-sm-0">
+  <div class="col-12 col-md-8 offset-md-2">
+    <h2 class="mb-4 fw-bold">Create a New Listing</h2>
+    
     <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
       
       <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input 
-          name="listing[title]" 
-          placeholder="Add a catchy title" 
-          type="text" 
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Title looks good!</div>
+        <label for="title" class="form-label fw-semibold">Title</label>
+        <input name="listing[title]" placeholder="Catchy title (e.g., Cozy Beachfront Cabin)" type="text" class="form-control py-2" required />
+        <div class="invalid-feedback">Please enter a valid title.</div>
       </div>
 
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea 
-          name="listing[description]"
-          class="form-control"
-          required
-          ></textarea>
-          <div class="invalid-feedback">Please enter a short description!</div>
-      </div>
-      
-<div class="mb-3">
-  <label class="form-label">Upload Listing Image</label>
-  <input
-    type="file"
-    name="listing[imageFile]"
-    class="form-control"
-    accept="image/*"
-  />
-</div>
-
-<div class="mb-3">
-  <label class="form-label">OR Image URL</label>
-  <input
-    type="text"
-    name="listing[imageUrl]"
-    class="form-control"
-    placeholder="https://example.com/image.jpg"
-  />
-</div>
-
-
-      <div class="row">
-        <div class="mb-3 col-md-4"> 
-          <!-- md-medium (in page size) -->
-        <label for="price" class="form-label">Price</label>
-        <input 
-          name="listing[price]" 
-          placeholder="1200" 
-          
-          class="form-control" 
-          required
-        />
-        <div class="invalid-feedback">Price should be valid!</div>
+        <label for="description" class="form-label fw-semibold">Description</label>
+        <textarea name="listing[description]" placeholder="Describe your beautiful place..." class="form-control" rows="4" required></textarea>
+        <div class="invalid-feedback">Please enter a short description.</div>
       </div>
 
-        <div class="mb-3 col-md-8">
-        <label for="country" class="form-label">Country</label>
-        <input 
-          name="listing[country]" 
-          placeholder="India" 
-          type="text" 
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">Country Name should be valid!</div>
+      <div class="mb-3">
+        <label for="image" class="form-label fw-semibold">Upload Image</label>
+        <input name="listing[image]" type="file" class="form-control py-2" required />
+        <div class="invalid-feedback">Please upload an image file.</div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-sm-6">
+          <label for="price" class="form-label fw-semibold">Price per night</label>
+          <div class="input-group">
+            <span class="input-group-text">&#8377;</span>
+            <input name="listing[price]" placeholder="1200" type="number" class="form-control py-2" required />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <label for="country" class="form-label fw-semibold">Country</label>
+          <input name="listing[country]" placeholder="India" type="text" class="form-control py-2" required />
+          <div class="invalid-feedback">Please enter a valid country name.</div>
         </div>
       </div>
-      
-      <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input 
-          name="listing[location]" 
-          placeholder="Mumbai" 
-          type="text" 
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">Location should be valid!</div>
+
+      <div class="mb-4">
+        <label for="location" class="form-label fw-semibold">Location</label>
+        <input name="listing[location]" placeholder="Mumbai, Maharashtra" type="text" class="form-control py-2" required />
+        <div class="invalid-feedback">Please enter a valid location.</div>
       </div>
-      
-      <button class="btn btn-dark add-btn mb-3">Add</button>
-      
+
+      <button class="btn btn-danger w-100 py-2.5 rounded-3 fw-bold shadow-sm">Add Listing</button>
+
     </form>
-    </div>
   </div>
+</div>

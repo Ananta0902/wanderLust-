@@ -1,7 +1,8 @@
 <style>
+  /* Fixed structure to prevent layout bleeding */
   .navbar {
-    height: 5rem;
-    background-color: white;
+    background-color: white !important;
+    padding: 0.75rem 0 !important;
   }
 
   .fa-compass {
@@ -15,9 +16,9 @@
     color: #fe424d !important;
   }
 
-  /* Center Search Bar */
+  /* Center Search Bar Default Desktop Styling */
   .search-form {
-    width: 60%;
+    width: 45%;
   }
 
   .search-inp {
@@ -31,13 +32,13 @@
     background-color: #fe424d;
     color: white;
     border-radius: 25px;
-    padding: 0.6rem;
+    padding: 0.6rem 1.2rem;
     border: none;
     margin-left: 0.5rem;
   }
 
   .search-btn:hover {
-    background-color: #fe424d;
+    background-color: #e03b44;
     color: white;
   }
 
@@ -48,13 +49,13 @@
   .nav-link {
     color: #222 !important;
     font-weight: 500;
-    margin-left: 0.5rem;
   }
 
   .auth-btn {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 0.5rem 1rem !important;
+    text-align: center;
   }
 
   .login-btn {
@@ -62,32 +63,71 @@
     color: white !important;
     border-radius: 12px;
     padding: 0.5rem 1rem !important;
+    text-align: center;
   }
 
   .login-btn:hover {
+    background-color: #e03b44;
     color: white !important;
   }
 
-  @media (max-width: 992px) {
+  /* Core Responsive Overrides: Clean stacking layout on small screens */
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: white;
+      padding: 1rem 0.5rem;
+      border-top: 1px solid #eee;
+      margin-top: 0.5rem;
+    }
+
     .search-form {
+      width: 100% !important;
+      margin: 0 0 1rem 0 !important;
+    }
+
+    .navbar-nav {
       width: 100%;
-      margin: 1rem 0;
+      align-items: stretch !important;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 0.5rem 0;
     }
   }
 </style>
 
-<nav class="navbar navbar-expand-lg border-bottom sticky-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg border-bottom sticky-top shadow-sm">
+  <div class="container-fluid px-3 px-md-5">
+    
+    <div class="d-flex align-items-center justify-content-between w-100 d-lg-none mb-2">
+      <a class="navbar-brand d-flex align-items-center m-0" href="/listings" style="font-size: 1.6rem;">
+        <i class="fa-regular fa-compass me-2" style="font-size: 1.6rem;"></i>
+        WanderLust
+      </a>
 
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <button
+        class="navbar-toggler shadow-none border-0 p-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon" style="width: 1.5em; height: 1.5em;"></span>
+      </button>
+    </div>
+
+    <a class="navbar-brand d-none d-lg-flex align-items-center" href="/listings">
       <i class="fa-regular fa-compass me-2"></i>
       WanderLust
     </a>
 
-    <!-- Mobile Toggle -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler d-none shadow-none border-0"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
@@ -95,62 +135,48 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+      <div class="mx-auto search-form">
+        <form class="d-flex" role="search" action="/listings/search" method="GET">
+          <input
+            class="form-control search-inp"
+            type="search"
+            name="q"
+            placeholder="Search destinations..."
+            required
+          />
+          <button class="btn search-btn d-flex align-items-center" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </button>
+        </form>
+      </div>
 
-  <!-- CENTER SEARCH -->
-  <div class="mx-auto search-form">
-    <form
-      class="d-flex"
-      role="search"
-      action="/listings/search"
-      method="GET"
-    >
-      <input
-        class="form-control  search-inp"
-        type="search"
-        name="q"
-        placeholder="Search destinations..."
-        required
-      />
-
-      <button class="btn search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        Search
-      </button>
-    </form>
-  </div>
-
-</div>
-      <div class="navbar-nav align-items-center">
-
-        <a class="nav-link me-3" href="/listings">
+      <div class="navbar-nav align-items-lg-center">
+        <a class="nav-link me-lg-3" href="/listings">
           Explore
         </a>
 
-        <a class="nav-link me-3" href="/listings/new">
+        <a class="nav-link me-lg-3" href="/listings/new">
           Airbnb your home
         </a>
 
         <% if (typeof currUser === 'undefined' || !currUser) { %>
-
-          <a class="nav-link auth-btn me-2" href="/signup">
+          <a class="nav-link auth-btn me-lg-2" href="/signup">
             Sign up
           </a>
-
           <a class="nav-link login-btn" href="/login">
             Log in
           </a>
-
         <% } else { %>
-
           <a class="nav-link login-btn" href="/logout">
             Logout
           </a>
-
         <% } %>
-
       </div>
 
     </div>
+
   </div>
 </nav>

@@ -296,3 +296,91 @@ form {
 .card hr {
     margin: 25px 0;
 }
+/* Responsive Grid Overrides and Image Fit */
+.listing-card img {
+    transition: transform 0.2s ease-in-out;
+}
+.listing-card img:hover {
+    transform: scale(1.02);
+}
+
+/* Scrollable Horizontal Container Utility for Mobile Categories */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+.scrollbar-hidden {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.filter-item {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.filter-item:hover {
+    opacity: 1;
+}
+
+/* Adjust layout alignment shifts on tiny screen breaks */
+@media (max-width: 767.98px) {
+    .tax-toggle-container {
+        width: 100%;
+        margin-top: 12px;
+        padding-left: 0 !important;
+    }
+    .form-check-reverse {
+        text-align: left !important;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+}
+/* Custom utility rules ensuring components flow layout properties correctly on mobile devices */
+@media (max-width: 767.98px) {
+    .nav-search-container {
+        max-width: 100% !important;
+    }
+    
+    .custom-filters-container {
+        width: 100% !important;
+        padding-bottom: 5px;
+    }
+
+    .tax-toggle-box {
+        margin-top: -5px;
+    }
+}
+
+/* Hide horizontal scrollbars across filter loops */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Filter Interaction styling rules */
+.filter-item {
+    opacity: 0.65;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.filter-item:hover, .active-filter {
+    opacity: 1;
+    color: #dc3545 !important;
+    border-bottom: 2px solid #dc3545;
+}
+
+/* Listing details structure adjustments */
+.listing-card img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: opacity 0.2s ease;
+}
+
+.listing-card img:hover {
+    opacity: 0.9;
+}

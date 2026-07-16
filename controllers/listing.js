@@ -39,11 +39,11 @@ module.exports.searchListing = async (req, res) => {
 module.exports.index = async (req,res) => {
   const allListings = await Listing.find({});
 
-  console.log("Listings count:", allListings.length);
+  // console.log("Listings count:", allListings.length);
 
-  if(allListings.length > 0){
-      console.log(allListings[0]);
-  }
+  // if(allListings.length > 0){
+  //     // console.log(allListings[0]);
+  // }
 
   res.render("listings/index.ejs",{allListings});
 };

@@ -384,3 +384,9 @@ form {
 .listing-card img:hover {
     opacity: 0.9;
 }
+/* Safeguard card images from causing Layout Shifts (CLS) */
+.card-img-top {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  object-fit: cover;
+}
